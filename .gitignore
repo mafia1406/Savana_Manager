@@ -1,0 +1,7 @@
+node_modules
+src/includes/data
+src/includes/image
+src/includes/structures
+src/includes/util
+package-lock.json
+.vscode

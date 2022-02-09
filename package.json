@@ -1,0 +1,33 @@
+{
+  "dependencies": {
+    "discord.js": "^13.6.0",
+    "fs": "^0.0.1-security",
+    "moment": "^2.29.1",
+    "mysql2": "^2.3.3",
+    "replace-once": "^1.0.0"
+  },
+  "name": "savana_manager",
+  "version": "2.0.0",
+  "description": "Official Savana Manager Bot [OPEN SOURCE]",
+  "main": "src/index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Savana",
+    "Discord",
+    "DiscordJS",
+    "OpenSource"
+  ],
+  "author": "Savana",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mafia1406/Savana_Manager.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mafia1406/Savana_Manager/issues"
+  },
+  "homepage": "https://github.com/mafia1406/Savana_Manager#readme"
+}
