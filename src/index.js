@@ -19,6 +19,8 @@ const client = new Discord.Client({
 main()
 
 async function main() {
+    console.log("-----------------------------------------------CONSOLE :-----------------------------------------------");
+    Savana.output.show('info', "Connecting to Discord.js API V13 in progress...")
     var [clientResult, ClientFields] = await mysql.query("SELECT * FROM `sm_settings`"); // Get Client Information From The DataBase
     var activities = {
         name: [],
@@ -37,16 +39,21 @@ async function main() {
             activities.url.push(clientResult[i].activityURL)
             activities.time.push(clientResult[i].activityInterval)
         }   
+    } else {
+        Savana.output.show("error", "Merci d'introduire au moins une ligne dans la table sm_settings")
     }
 
-    console.log(activities)
-    //var guildData = (await Savana.GetGuild.id("840671648255311923"))
-    //console.log( (await Savana.GetGuild.id("840671648255311923")).Config.verify.verify_type)
+
+
+    Savana.output.show("info", "Tout ce passe bien pour l'instant !")
 }
 
-/*
+
+
+/* Utilities
+var guildData = (await Savana.GetGuild.id("840671648255311923"))
+console.log( (await Savana.GetGuild.id("840671648255311923")).Config.verify.verify_type)
+
 var [result, fields] = await mysql.query("SELECT * FROM `sm_iusers`");
 console.log(result)
 */
-
-

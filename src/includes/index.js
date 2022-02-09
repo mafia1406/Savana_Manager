@@ -1,7 +1,5 @@
 'use strict';
 
-
-
 //Util 
 const sqlData = require("./data/sql.json");
 const sql = require("./util/sql");
@@ -13,6 +11,7 @@ exports.mysql = new sql({
     password: sqlData.password,
     database: sqlData.database
 });
+exports.output = require("./util/output");
 
 //Structures
 exports.createGuild = require("./structures/CreateGuild");
