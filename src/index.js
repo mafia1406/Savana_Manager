@@ -22,11 +22,12 @@ async function main() {
     console.log("-----------------------------------------------CONSOLE :-----------------------------------------------");
     Savana.output.show('info', "Connecting to Discord.js API V13 in progress...")
     var [clientResult, ClientFields] = await mysql.query("SELECT * FROM `sm_settings`"); // Get Client Information From The DataBase
-    var activities = {
-        name: [],
-        type: [],
-        url: [],
-        time: []
+    
+    var activities = { //Object (Cache of activities in database)
+        name: [], //Array<String>
+        type: [], //Array<String>
+        url: [], //Array<URL>
+        time: [] //Array<Integer>
     }
 
     if(clientResult && clientResult.length >= 0){
@@ -40,12 +41,24 @@ async function main() {
             activities.time.push(clientResult[i].activityInterval)
         }   
     } else {
-        Savana.output.show("error", "Merci d'introduire au moins une ligne dans la table sm_settings")
+        Savana.output.show("error", "Please introduce at least one line in the sm_settings table !")
     }
 
+    fs.readdir("./src/includes/commands/", (err, content) => {
+        if(err) Savana.output.show("error", err);
+
+        if(content.length < 1) return Savana.output.show("error", "Please create folders in the commands folder !")
+
+        var groups = [] //Array of folders
+        content.forEach(element => {
+            if(!element.includes(".")) groups.push(element) //Check if the element contains a . to add only the folder(s)
+        })
+
+        
+    })
 
 
-    Savana.output.show("info", "Tout ce passe bien pour l'instant !")
+    Savana.output.show("info", "Everything is fine so far !")
 }
 
 
