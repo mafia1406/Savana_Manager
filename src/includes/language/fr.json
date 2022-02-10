@@ -1,0 +1,10 @@
+{
+    "hello": {
+        "day": "Bonjour",
+        "night": "Bonsoir"
+    },
+    "verify": {
+        "title": "Vérification de {user}",
+        "description": "{hello} {user}, cliquez sur le ce lien {verifyLink} pour pouvoir vous vérifier !"
+    }
+}

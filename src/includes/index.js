@@ -14,7 +14,8 @@ exports.mysql = new sql({
 exports.output = require("./util/output");
 
 //Structures
-exports.createGuild = require("./structures/CreateGuild");
+exports.CreateGuildSettings = require("./structures/CreateGuildSettings");
+exports.CreateGuildConfig = require("./structures/CreateGuildConfig");
 exports.CreateUser = require("./structures/CreateUser");
 exports.GetGuild = require("./structures/GetGuild");
 exports.GetUser = require("./structures/GetUser");

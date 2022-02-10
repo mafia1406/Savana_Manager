@@ -1,15 +1,14 @@
-const Savana = require("../../index")
-const Discord = require("discord.js")
-const { mysql } = require("../../index")
+module.exports.run = async (client, interaction) => {
+    interaction.reply({
+        content: "Pong !",
+        ephemeral: true
+    });
+}
 
-module.exports = (client) => {
-    this.help = {
-        name: "Ping",
-        description: "Ping commands to get pong response",
-        hwt: `${client.prefix}ping`
-    }
-
-    run: async (client, interaction) => {
-        interaction.reply("Pong !")
-    }
+module.exports.help = {
+    name: "ping",
+    alias: ["ping", "test"],
+    description: "Test command to get pong",
+    permissions: [],
+    premiumLevel: 0,
 }

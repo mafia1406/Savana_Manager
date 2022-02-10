@@ -1,5 +1,14 @@
 module.exports.run = async (client, interaction) => {
-        interaction.reply("Pong !")
+    interaction.reply({
+        content: "Pong !",
+        ephemeral: true
+    });
 }
 
-module.exports.help;
+module.exports.help = {
+    name: "ping",
+    alias: ["ping", "test"],
+    description: "Test command to get pong",
+    permissions: [],
+    premiumLevel: 0,
+}

@@ -28,19 +28,21 @@ async function main() {
         time: [] //Array<Integer>
     };
 
+    client.footer = "Savana Manager ©";
+
     if(clientResult && clientResult.length >= 0){
 
-        await client.login(clientResult[0].token)
+        await client.login(clientResult[0].token);
 
         for (var i = 0; i < clientResult.length; i++){
-            activities.name.push(clientResult[i].activity)
-            activities.type.push(clientResult[i].activityType)
-            activities.url.push(clientResult[i].activityURL)
-            activities.time.push(clientResult[i].activityInterval)
-        }   
+            activities.name.push(clientResult[i].activity);
+            activities.type.push(clientResult[i].activityType);
+            activities.url.push(clientResult[i].activityURL);
+            activities.time.push(clientResult[i].activityInterval);
+        };
     } else {
         Savana.output.show("error", "Please introduce at least one line in the sm_settings table !")
-    }
+    };
 
     client.commands = new Discord.Collection();
 
@@ -101,6 +103,7 @@ async function main() {
 
 /* Utilities
 var guildData = (await Savana.GetGuild.id("840671648255311923"))
+var userData = (await Savana.GetUser.id("840671648255311923"))
 console.log( (await Savana.GetGuild.id("840671648255311923")).Config.verify.verify_type)
 
 var [result, fields] = await mysql.query("SELECT * FROM `sm_iusers`");
