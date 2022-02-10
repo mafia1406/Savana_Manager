@@ -1,15 +1,5 @@
-const { Command } = require('discord-akairo');
-
-class PingCommand extends Command {
-    constructor() {
-        super('ping', {
-            aliases: ['ping', 'test']
-        });
-    }
-
-    exec(message) {
-        return message.reply("Pong!")
-    }
+module.exports.run = async (client, interaction) => {
+        interaction.reply("Pong !")
 }
 
-module.exports = PingCommand;
+module.exports.help;
