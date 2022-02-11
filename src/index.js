@@ -29,6 +29,8 @@ async function main() {
     };
 
     client.footer = "Savana Manager ©";
+    client.replace = replaceOnce;
+    client.moment = moment;
 
     if(clientResult && clientResult.length >= 0){
 
