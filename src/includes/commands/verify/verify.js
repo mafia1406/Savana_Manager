@@ -5,21 +5,20 @@ var [result, fields] = [];
 
 module.exports.run = async (client, interaction) => {
     var verifyURL = "https://savana-project.com/verify/";
+    var verifyKey = "";
 
-    [result, fields] = await Savana.mysql.query(`SELECT * FROM \`sm_verify\` WHERE userid=${interaction.user.id}`);
+    [result, fields] = await Savana.mysql.query(`SELECT * FROM \`sm_verify\` WHERE userid=${interaction.user.id} AND serverid=${interaction.guild.id}`);
 
-    if(result[0]){
+    if(!result[0]){
         var serials = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
         var chars = 4;
         var segments = 4;
 
-        var verifyKey = "";
-        
         for (var i = 0; i < segments; i++) {
             var segment = "";
 
             for (var I = 0; I < chars; I++) {
-                var x = Math.floor( Math.random() * ( 0 - 35 + 1 ) ) + 0;
+                var x = Math.floor( Math.random() * ( 35 - 0 + 1 ) ) + 0;
                 segment += serials[x];
             }
 
@@ -30,7 +29,7 @@ module.exports.run = async (client, interaction) => {
             }
         }
 
-        await Savana.mysql.query(`INSERT INTO \`sm_verify\` (userid, serverid, apikey, roleid, username, guildname) VALUES (${interaction.user.id}, ${interaction.guild.id}, ${verifyKey}, ${(await Savana.GetGuild.id(interaction.guild.id)).Config.verify.verify_roles}, ${interaction.user.username}, ${interaction.guild.name})`)
+        await Savana.mysql.query(`INSERT INTO \`sm_verify\` (userid, serverid, apikey, roleid, username, guildname) VALUES ('${interaction.user.id}', '${interaction.guild.id}', '${verifyKey}', '${(await Savana.GetGuild.id(interaction.guild.id)).Config.verify.verify_roles}', '${interaction.user.username}', '${interaction.guild.name}')`)
     
         verifyURL += verifyKey;
     } else {

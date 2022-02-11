@@ -5,4 +5,5 @@ src/includes/structures
 src/includes/util
 package-lock.json
 .vscode
+.autogit
 tmp/
