@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const Savana = require("../../index");
+const Savana = require("savana.js");
 
 /*      Interaction Events     */
 module.exports = async (client, interaction) => {
@@ -12,5 +12,7 @@ module.exports = async (client, interaction) => {
     client.prefix = guildData.Settings.prefix;
     client.language = require(`../../language/${guildData.Settings.language}`);
 
+
+    
     cmd.run(client, interaction)
 }

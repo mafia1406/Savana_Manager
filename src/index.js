@@ -3,8 +3,8 @@ const
     fs = require("fs"),
     moment = require("moment"),
     replaceOnce = require("replace-once"),
-    Savana = require("./includes/index"),
-    { mysql } = require("./includes/index");
+    Savana = require("savana.js"),
+    { mysql } = require("savana.js");
 
 const client = new Discord.Client({
     retryLimit: 6,
@@ -31,6 +31,7 @@ async function main() {
     client.footer = "Savana Manager ©";
     client.replace = replaceOnce;
     client.moment = moment;
+    client.activities = activities;
 
     if(clientResult && clientResult.length >= 0){
 
@@ -100,14 +101,3 @@ async function main() {
 
     Savana.output.show("info", "Everything is fine so far !");
 }
-
-
-
-/* Utilities
-var guildData = (await Savana.GetGuild.id("840671648255311923"))
-var userData = (await Savana.GetUser.id("840671648255311923"))
-console.log( (await Savana.GetGuild.id("840671648255311923")).Config.verify.verify_type)
-
-var [result, fields] = await mysql.query("SELECT * FROM `sm_iusers`");
-console.log(result)
-*/

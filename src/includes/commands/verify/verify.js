@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const Savana = require("../../index");
+const Savana = require("savana.js");
 var [result, fields] = [];
 
 
