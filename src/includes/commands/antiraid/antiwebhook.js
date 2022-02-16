@@ -1,15 +1,13 @@
 const Savana = require("savana.js");
 
-module.exports.run = async (client, interaction) => { //run function
+module.exports.run = async (client, interaction) => {
 
-    var state = (interaction.options.get("abstatus").value) ? 1 : 0;
+    var state = (interaction.options.get("awstatus").value) ? 1 : 0;
 
-    console.log(state)
     await (Savana.UpdateGuild.id(interaction.guild.id, {
-        anti_bot: state
+        anti_webhook: state
     }))
 
-    await (Savana.UpdateGuild.id(interaction.guild.id))
      interaction.reply({
          content: "C'est bon !",
          ephemeral: true
@@ -17,17 +15,17 @@ module.exports.run = async (client, interaction) => { //run function
 }
 
 module.exports.help = {
-    name: "antibot", //String
-    alias: ["protectbot"], //Object<String>
+    name: "antiwebhook", //String
+    alias: ["-webhook"], //Object<String>
     description: "Set antibot status !", //String
     options: [{ //Object<JSON>
         type: "BOOLEAN", 
-        name: "abstatus",
-        description: "Define the anti bot status",
+        name: "awstatus",
+        description: "Define the anti webhook status",
         required: true,
         channel_types: 0,
     }],
     permissions: [], //Object<String>
-    premiumLevel: 0, // Integer
+    premiumLevel: 0, // Integer (Premium Level)
     whitelist: 7, // Integer  (Whitelist Level)
 }

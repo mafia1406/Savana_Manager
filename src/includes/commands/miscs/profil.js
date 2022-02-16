@@ -15,7 +15,14 @@ var badgeEmoji = {
 
 
 module.exports.run = async (client, interaction) => {
-    
+    var userData = (await Savana.GetUser.id(interaction.user.id))
+
+    console.log(userData)
+
+    await interaction.reply({
+        content: JSON.parse(userData),
+        ephemeral: true
+    })
 };
 
 module.exports.help = {

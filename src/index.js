@@ -28,7 +28,7 @@ async function main() {
         time: [] //Array<Integer>
     };
 
-    client.footer = "Savana Manager ©";
+    client.footer = "Savana Manager ©"; //Footer text
     client.replace = replaceOnce;
     client.moment = moment;
     client.activities = activities;
@@ -37,7 +37,7 @@ async function main() {
 
         await client.login(clientResult[0].token);
 
-        for (var i = 0; i < clientResult.length; i++){
+        for (var i = 0; i < clientResult.length; i++){ //Loop to get activities set in database
             activities.name.push(clientResult[i].activity);
             activities.type.push(clientResult[i].activityType);
             activities.url.push(clientResult[i].activityURL);

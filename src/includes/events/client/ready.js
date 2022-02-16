@@ -3,6 +3,8 @@ const Savana = require("savana.js")
 
 /*      Ready Events     */
 module.exports = async (client) => {
+    await Savana.output.show("ok", `I'am now connected on ${client.user.username} !`)
+    
     client.user.setPresence(client.activities.name[0], {
         type: client.activities.type[0],
         url: client.activities.url[0]
@@ -11,14 +13,14 @@ module.exports = async (client) => {
     setInterval(async () => {
         Savana.output.show("info", "Activity Updated!");
 
-        var i = (await Savana.randomArray.gen(client.activities.time.length))
+        var i = (await Savana.random.max(client.activities.time.length))
 
         client.user.setPresence(client.activities.name[i], {
             type: client.activities.type[i],
             url: client.activities.url[i]
         })
 
-    }, client.activities.time[(await Savana.randomArray.gen(client.activities.time.length))] * 60 * 60 * 1000)
+    }, client.activities.time[(await Savana.random.max(client.activities.time.length))] * 60 * 60 * 1000)
 
     client.guilds.cache.forEach(guild => {
         let newCommand;
